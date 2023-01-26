@@ -99,7 +99,7 @@ public class TechJobs {
                 in.nextLine();
             } else {
                 String line = in.nextLine();
-                boolean shouldQuit = line.equalsIgnoreCase("x");
+                boolean shouldQuit = line.equals("x");
                 if (shouldQuit) {
                     return null;
                 }
