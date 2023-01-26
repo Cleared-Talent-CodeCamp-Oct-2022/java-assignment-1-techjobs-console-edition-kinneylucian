@@ -61,7 +61,7 @@ public class TechJobs {
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
 
-                if (searchField.equals("all")) {
+                if (searchField.equalsIgnoreCase("all")) {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
@@ -99,7 +99,7 @@ public class TechJobs {
                 in.nextLine();
             } else {
                 String line = in.nextLine();
-                boolean shouldQuit = line.equals("x");
+                boolean shouldQuit = line.equalsIgnoreCase("x");
                 if (shouldQuit) {
                     return null;
                 }
@@ -119,7 +119,10 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-        System.out.println("printJobs is not implemented yet");
+        for(HashMap<String, String> listjobs : someJobs) {
+            System.out.println("\n" + "*****\n"+"position type: "+ listjobs.get("position type") +"\n" +"name: " + listjobs.get("name") + "\n" + "employer: " + listjobs.get("employer") + "\n" + "location: " + listjobs.get("location") + "\n" + "core competency: " + listjobs.get("core competency") + "\n" + "*****");
+        }if(someJobs.isEmpty()) {
+            System.out.println("No Results");
+        }
     }
 }
